@@ -1,4 +1,4 @@
-﻿const API_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost:5000/api" : "https://robotman-api.onrender.com/api";
+﻿const API_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost:5000/api" : "https://robotman.onrender.com/api";
 let currentUser = JSON.parse(localStorage.getItem("user"));
 let token = localStorage.getItem("token");
 
