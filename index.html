@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Man - Official Site | Nene Studios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./favicon.png">
+</head>
+<body>
+
+    <div class="cyber-grid"></div>
+    <div class="pixel-stars-background"></div>
+    <div class="scanlines"></div>
+
+    <img src="robot-idle.gif" alt="Robot Man Idle" class="floating-gif gif-left">
+    <img src="robot-run.gif" alt="Robot Man Running" class="floating-gif gif-right">
+
+    <div class="page-container">
+
+        <header class="main-header">
+            <div class="header-content">
+                <h1 class="game-title" data-text="ROBOT MAN">ROBOT MAN</h1>
+                <p class="subtitle">UN PROYECTO DE NENE STUDIOS</p>
+                <div class="live-badge">DEMO DISPONIBLE</div>
+            </div>
+        </header>
+
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="captura1.png" alt="Robot Man"></div>
+                    <div class="carousel-slide"><img src="captura2.png" alt="Robot Man"></div>
+                    <div class="carousel-slide"><img src="captura3.png" alt="Robot Man"></div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </section>
+
+        <section class="synopsis-section">
+            <div class="sinopsis-card">
+                <div class="pixel-particles"></div>
+                <div class="card-corner top-left"></div>
+                <div class="card-corner top-right"></div>
+                <h2>[ INFORME_DE_MISIÓN ]</h2>
+                <p>Una experiencia <strong>Run and Gun</strong> brutal inspirada en los clásicos de 16 bits. Domina las plataformas y destruye al ejército cibernético en solitario o junto a un aliado en su modo cooperativo controlando a <strong>RoboTina</strong>. ¡Un reto que no subestima tus reflejos!</p>
+                <div class="card-corner bottom-left"></div>
+                <div class="card-corner bottom-right"></div>
+            </div>
+        </section>
+
+        <section class="arsenal-section">
+            <h2 class="section-title-orange">// ARSENAL_DE_PLASMA_INTERACTIVO</h2>
+            <div class="weapons-grid">
+                <div class="weapon-card ice">
+                    <div class="pixel-particles"></div>
+                    <div class="preview-box">
+                        <img src="weapon-ice-static.gif" class="static-img" alt="IceShoot Icon">
+                        <img src="weapon-ice-action.gif" class="action-gif" alt="IceShoot Gameplay">
+                        <div class="hover-hint">PREVIEW_ON_HOVER</div>
+                    </div>
+                    <div class="weapon-info">
+                        <h3>IceShoot</h3>
+                        <p>Dispara picos perforantes capaces de congelar el campo de batalla.</p>
+                    </div>
+                </div>
+
+                <div class="weapon-card blob">
+                    <div class="pixel-particles"></div>
+                    <div class="preview-box">
+                        <img src="weapon-blob-static.gif" class="static-img" alt="The Blob Icon">
+                        <img src="weapon-blob-action.gif" class="action-gif" alt="The Blob Gameplay">
+                        <div class="hover-hint">PREVIEW_ON_HOVER</div>
+                    </div>
+                    <div class="weapon-info">
+                        <h3>The Blob</h3>
+                        <p>Bolas explosivas que rebotan para sorprender a enemigos ocultos.</p>
+                    </div>
+                </div>
+
+                <div class="weapon-card minigun">
+                    <div class="pixel-particles"></div>
+                    <div class="preview-box">
+                        <img src="weapon-minigun-static.gif" class="static-img" alt="Minigun Icon">
+                        <img src="weapon-minigun-action.gif" class="action-gif" alt="Minigun Gameplay">
+                        <div class="hover-hint">PREVIEW_ON_HOVER</div>
+                    </div>
+                    <div class="weapon-info">
+                        <h3>Minigun</h3>
+                        <p>Cadencia de fuego imparable para barrer el mapa en segundos.</p>
+                    </div>
+                </div>
+
+                <div class="weapon-card missile">
+                    <div class="pixel-particles"></div>
+                    <div class="preview-box">
+                        <img src="weapon-missile-static.gif" class="static-img" alt="Misil Icon">
+                        <img src="weapon-missile-action.gif" class="action-gif" alt="Misil Gameplay">
+                        <div class="hover-hint">PREVIEW_ON_HOVER</div>
+                    </div>
+                    <div class="weapon-info">
+                        <h3>Misil</h3>
+                        <p>Proyectiles teledirigidos con algoritmo de puntería infalible.</p>
+                    </div>
+                </div>
+
+                <div class="weapon-card demonbite">
+                    <div class="pixel-particles"></div>
+                    <div class="preview-box">
+                        <img src="weapon-demonbite-static.gif" class="static-img" alt="The DemonBite Icon">
+                        <img src="weapon-demonbite-action.gif" class="action-gif" alt="The DemonBite Gameplay">
+                        <div class="hover-hint">PREVIEW_ON_HOVER</div>
+                    </div>
+                    <div class="weapon-info">
+                        <h3>Demon Bite</h3>
+                        <p>Desata feroces mordiscos espirituales que buscan activamente a tus rivales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bestiary-section">
+            <h2 class="section-title-pink">// AMENAZAS_DETECTADAS (SIN SPOILERS!)</h2>
+            <div class="enemy-scroller">
+                <div class="enemy-card">
+                    <div class="pixel-particles"></div>
+                    <img src="enemy-ball.gif" alt="Robot Ball Sprite" class="enemy-sprite">
+                    <div class="enemy-meta">
+                        <h4>Robot Ball</h4>
+                        <span class="danger-low">AMENAZA: BAJA</span>
+                    </div>
+                </div>
+
+                <div class="enemy-card">
+                    <div class="pixel-particles"></div>
+                    <img src="enemy-hammer.gif" alt="Hammer Robot Sprite" class="enemy-sprite">
+                    <div class="enemy-meta">
+                        <h4>Hammer Bot</h4>
+                        <span class="danger-medium">AMENAZA: ALTA</span>
+                    </div>
+                </div>
+
+                <div class="enemy-card">
+                    <div class="pixel-particles"></div>
+                    <img src="enemy-tank.gif" alt="Tank Robot Sprite" class="enemy-sprite">
+                    <div class="enemy-meta">
+                        <h4>Tank Robot</h4>
+                        <span class="danger-high">AMENAZA:CRÍTICA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="loot-section">
+            <div class="loot-card">
+                <div class="pixel-particles"></div>
+                <div class="card-corner top-left"></div>
+                <div class="card-corner top-right"></div>
+                <h2>[ SISTEMA_DE_LOOT_Y_SUMINISTROS ]</h2>
+                <div class="loot-grid">
+                    <div class="loot-item blue-pill">
+                        <img src="pill-blue.gif" alt="Píldora Azul">
+                        <div class="loot-info">
+                            <strong>Píldora Azul</strong>
+                            <p>Recarga vital (Chica / Grande)</p>
+                        </div>
+                    </div>
+                    <div class="loot-item red-pill">
+                        <img src="pill-red.gif" alt="Píldora Roja">
+                        <div class="loot-info">
+                            <strong>Píldora Roja</strong>
+                            <p>Munición secundaria</p>
+                        </div>
+                    </div>
+                    <div class="loot-item gear-item">
+                        <img src="gear.gif" alt="Engranaje">
+                        <div class="loot-info">
+                            <strong>Engranaje Dorado</strong>
+                            <p>+5 Puntos directos</p>
+                        </div>
+                    </div>
+                    <div class="loot-item life-item">
+                        <img src="life.gif" alt="1UP">
+                        <div class="loot-info">
+                            <strong>Item de Vida</strong>
+                            <p>Otorga 1UP adicional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-corner bottom-left"></div>
+                <div class="card-corner bottom-right"></div>
+            </div>
+        </section>
+
+        <section class="controls-section">
+            <div class="controls-card">
+                <div class="card-corner top-left"></div>
+                <div class="card-corner top-right"></div>
+
+                <div class="controls-header-text">
+                    <h2>[ CONFIGURACIÓN DE MANDOS / HUD INTERACTIVO ]</h2>
+                    <p class="click-hint">>> HAZ CLIC AL ELEMENTO PARA VER SU ACCIÓN <<</p>
+                </div>
+
+                <div class="controls-container">
+
+                    <div class="platform-block">
+                        <div class="platform-badge pc">TECLADO & RATÓN (PC)</div>
+                        <div class="controls-layout">
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">ESPACIO</span>
+                                    <div class="control-text-block"><strong>SALTO</strong><p>Eleva al personaje por las plataformas.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-jump-pad.gif" alt="Salto PC">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">SHIFT</span>
+                                    <div class="control-text-block"><strong>DASH</strong><p>Impulso rápido de evasión táctica.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-dash-pad.gif" alt="Dash PC">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">CLICK IZQ</span>
+                                    <div class="control-text-block"><strong>DISPARO</strong><p>Fuego directo contra las defensas.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-shoot-pad.gif" alt="Disparo PC">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">T</span>
+                                    <div class="control-text-block"><strong>CAMBIO DE ARMA</strong><p>Alterna el arsenal elemental activo.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-weapon-pc.gif" alt="Cambio Arma PC">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">ESC</span>
+                                    <div class="control-text-block"><strong>MENÚ DE PAUSA</strong><p>Suspende temporalmente el juego.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-pause-pad.gif" alt="Pausa PC">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="platform-block">
+                        <div class="platform-badge gamepad">MANDO / GAMEPAD COOP</div>
+                        <div class="controls-layout">
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label btn-mando-red">A</span>
+                                    <div class="control-text-block"><strong>SALTO</strong><p>Esquiva obstacles mecánicos.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-jump-pad.gif" alt="Salto Mando">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label btn-mando-red">B</span>
+                                    <div class="control-text-block"><strong>DASH</strong><p>Evasión veloz en ráfagas de peligro.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-dash-pad.gif" alt="Dash Mando">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label btn-mando-red">X</span>
+                                    <div class="control-text-block"><strong>DISPARO</strong><p>Descarga plasma hacia las hordas.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-shoot-pad.gif" alt="Disparo Mando">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label btn-mando-red">Y</span>
+                                    <div class="control-text-block"><strong>CAMBIO DE ARMA</strong><p>Modifica el disparo secundario.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-weapon-pad.gif" alt="Cambio Mando">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label btn-mando-orange">SELECT</span>
+                                    <div class="control-text-block"><strong>JUGADOR 2 UNIRSE</strong><p>Añade a RoboTina al modo cooperativo.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-coop.gif" alt="Join Coop">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label btn-mando-orange">START</span>
+                                    <div class="control-text-block"><strong>MENÚ DE PAUSA</strong><p>Congela el entorno cibernético.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-pause-pad.gif" alt="Pausa Mando">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="platform-block">
+                        <div class="platform-badge mobile">ANDROID (HUD TÁCTIL VIRTUAL)</div>
+                        <div class="controls-layout">
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">D-PAD VIR.</span>
+                                    <div class="control-text-block"><strong>JOYSTICK PANTALLA</strong><p>Control táctil analógico izquierdo.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-move-touch.gif" alt="Joystick Táctil">
+                                </div>
+                            </div>
+
+                            <div class="control-key-item" onclick="toggleControl(this)">
+                                <div class="pixel-border-anim"></div>
+                                <div class="pixel-particles"></div>
+                                <div class="control-header-wrapper">
+                                    <span class="key-label">BOTONES HUD</span>
+                                    <div class="control-text-block"><strong>ACCIONES RÁPIDAS</strong><p>Botones digitales derechos en pantalla.</p></div>
+                                </div>
+                                <div class="control-action-monitor">
+                                    <img src="ctrl-action-touch.gif" alt="Botones Táctiles">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-corner bottom-left"></div>
+                <div class="card-corner bottom-right"></div>
+            </div>
+        </section>
+
+        <section class="bug-report-section">
+            <div class="bug-card">
+                <div class="pixel-particles"></div>
+                <div class="card-corner top-left"></div>
+                <div class="card-corner top-right"></div>
+                <h2>[ REGISTRO_DE_ANOMALÍAS_Y_BUGS ]</h2>
+                <p class="bug-intro">El sistema central se encuentra al <strong>70% de compilación</strong>. Detecta anomalías y repórtalas al núcleo:</p>
+
+                <form class="bug-terminal-form" id="bugForm">
+                    <div class="form-row">
+                        <label class="terminal-label">>> DETECTED_IN_PLATFORM:</label>
+                        <select class="terminal-select" id="bugPlatform">
+                            <option value="PC">WINDOWS PC (.ZIP)</option>
+                            <option value="ANDROID">ANDROID OS (.APK)</option>
+                            <option value="WEB">WEB INTERFACE / HUD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row text-area-row">
+                        <label class="terminal-label">>> ANOMALY_DESCRIPTION:</label>
+                        <textarea class="terminal-textarea" id="bugDescription" placeholder="Escribe el bug encontrado..." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="terminal-label">>> ATTACH_EVIDENCE (IMG_ONLY):</label>
+                        <input type="file" id="bugFile" accept="image/*" class="terminal-file-input">
+                    </div>
+
+                    <button type="submit" class="terminal-submit-btn" id="submitBtn">EJECUTAR_REPORTE.EXE</button>
+                </form>
+
+                <div class="card-corner bottom-left"></div>
+                <div class="card-corner bottom-right"></div>
+            </div>
+        </section>
+
+        <section class="downloads-section">
+            <h2 class="section-title">GET ROBOT MAN NOW</h2>
+            <div class="downloads-table">
+                <div class="table-header">
+                    <span>OPERATING SYSTEM</span>
+                    <span>DOWNLOAD LINK</span>
+                </div>
+
+                <div class="table-row row-android">
+                    <div class="os-column">
+                        <img src="android-icon.png" alt="Android" class="table-os-icon">
+                        <span class="os-name">ANDROID</span>
+                    </div>
+                    <a href="#" class="download-link link-apk">DOWNLOAD .APK (Proximamente)</a>
+                </div>
+
+                <div class="table-row row-pc">
+                    <div class="os-column">
+                        <img src="windows-icon.png" alt="Windows" class="table-os-icon">
+                        <span class="os-name">WINDOWS PC</span>
+                    </div>
+                    <a href="#" class="download-link link-pc">DOWNLOAD .ZIP (Proximamente)</a>
+                </div>
+            </div>
+            <div class="file-meta">PESO TOTAL: ~80 MB | DESPLEGADO CON TECNOLOGÍA CLOUDFLARE</div>
+
+            <div class="requirements-container">
+                <div class="req-box pc-req">
+                    <div class="req-title">// PC_MINIMUM_SPECS</div>
+                    <ul>
+                        <li><strong>SO:</strong> Windows 10 / 11 (64-bits)</li>
+                        <li><strong>CPU:</strong> Intel Core i3 / AMD Ryzen 3</li>
+                        <li><strong>RAM:</strong> 4 GB RAM</li>
+                        <li><strong>Gráficos:</strong> Integrados Intel HD 4000 / AMD Radeon</li>
+                        <li><strong>Memoria:</strong> 100 MB de espacio disponible</li>
+                    </ul>
+                </div>
+
+                <div class="req-box android-req">
+                    <div class="req-title">// ANDROID_MINIMUM_SPECS</div>
+                    <ul>
+                        <li><strong>SO:</strong> Android 8.0 o superior</li>
+                        <li><strong>CPU:</strong> Quad-Core 1.5 GHz o equivalente</li>
+                        <li><strong>RAM:</strong> 2 GB RAM</li>
+                        <li><strong>API:</strong> OpenGL ES 3.0 compatible</li>
+                        <li><strong>Memoria:</strong> 100 MB de espacio libre</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="comments-section" id="commentsSection">
+            <div class="comments-card">
+                <div class="pixel-particles"></div>
+                <div class="card-corner top-left"></div>
+                <div class="card-corner top-right"></div>
+                <h2>[ TRANSMISIONES_DEL_NÚCLEO ]</h2>
+                
+                <div id="authContainer" class="auth-container">
+                    <p class="auth-hint">>> IDENTIFÍCATE PARA COMENTAR:</p>
+                    <div class="auth-forms">
+                        <form id="loginForm" class="auth-form">
+                            <input type="text" id="loginUser" placeholder="USUARIO" required>
+                            <input type="password" id="loginPass" placeholder="CONTRASEÑA" required>
+                            <button type="submit">LOGIN.EXE</button>
+                        </form>
+                        <div class="auth-divider">OR</div>
+                        <form id="registerForm" class="auth-form">
+                            <input type="text" id="regUser" placeholder="NUEVO_USUARIO" required>
+                            <input type="password" id="regPass" placeholder="CONTRASEÑA" required>
+                            <button type="submit">REGISTRAR.EXE</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="userProfile" class="user-profile" style="display: none;">
+                    <span id="userInfo">>> BIENVENIDO, <span id="currentUsername"></span></span>
+                    <button id="logoutBtn" class="logout-btn">LOGOUT.BAT</button>
+                </div>
+
+                <div id="commentFormContainer" class="comment-form-container" style="display: none;">
+                    <form id="commentForm" class="comment-form">
+                        <textarea id="commentContent" placeholder="Escribe un comentario..." required></textarea>
+                        <button type="submit" id="postCommentBtn">POSTEAR.SH</button>
+                    </form>
+                </div>
+
+                <div id="commentsList" class="comments-list">
+                    <!-- Comentarios cargados dinámicamente -->
+                    <div class="loading-comments">CARGANDO_DATOS...</div>
+                </div>
+
+                <div class="card-corner bottom-left"></div>
+                <div class="card-corner bottom-right"></div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <p>&copy; <span id="currentYear"></span> ROBOT MAN PROJECT. ALL RIGHTS RESERVED.</p>
+            <div class="tech-badges">
+                <span>MADE WITH GODOT ENGINE</span>
+                <span>PIXEL ART BY ASEPRITE</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="terminalNotification" class="terminal-toast">
+        <span id="notificationText">SISTEMA_ACTUALIZADO</span>
+    </div>
+
+    <!-- MODAL DE CONFIRMACIÓN CYBERPUNK -->
+    <div id="cyberModal" class="cyber-modal-overlay">
+        <div class="cyber-modal">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner top-right"></div>
+            <h3 id="modalTitle">[ ALERTA_DEL_SISTEMA ]</h3>
+            <p id="modalMessage">ESTAS SEGURO DE ELIMINAR ESTE COMENTARIO?</p>
+            <div class="modal-actions">
+                <button id="modalConfirm" class="terminal-submit-btn">CONFIRMAR.EXE</button>
+                <button id="modalCancel" class="terminal-submit-btn cancel-btn">ABORTAR.ESC</button>
+            </div>
+            <div class="card-corner bottom-left"></div>
+            <div class="card-corner bottom-right"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="comments.js"></script>
+</body>
+</html>

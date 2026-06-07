@@ -1,0 +1,674 @@
+﻿/* ==========================================================================
+   1. CONFIGURACIÓN COMPLETA CYBERPUNK CON ANIMACIÓN DE FONDO INFINITA
+   ========================================================================= */
+:root {
+    --bg-dark: #030508;
+    --bg-card: #090d16;
+    --neon-blue: #00f0ff;
+    --neon-orange: #ff6600;
+    --neon-pink: #ff0055;
+    --neon-green: #3ade83;
+    --neon-purple: #9d4edd;
+    --text-white: #ffffff;
+    --text-gray: #94a3b8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Orbitron', sans-serif; background-color: var(--bg-dark); color: var(--text-white); overflow-x: hidden; letter-spacing: 1px; position: relative; }
+
+/* REJILLA DE FONDO BASE */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 240, 255, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* NUEVO EFECTO: Fondo espacial de píxeles neón (estrellas) con desplazamiento infinito hacia la izquierda */
+.pixel-stars-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%; /* El doble de ancho para el efecto loop */
+    height: 100%;
+    background-image:
+        radial-gradient(6px 6px at 40px 60px, var(--neon-blue), transparent),
+        radial-gradient(6px 6px at 200px 150px, var(--neon-pink), transparent),
+        radial-gradient(7px 7px at 450px 300px, var(--neon-purple), transparent),
+        radial-gradient(6px 6px at 700px 450px, var(--neon-green), transparent),
+        radial-gradient(7px 7px at 950px 180px, var(--neon-orange), transparent),
+        radial-gradient(6px 6px at 1200px 600px, var(--neon-blue), transparent),
+        radial-gradient(6px 6px at 1450px 350px, var(--neon-pink), transparent);
+    background-size: 800px 700px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+    animation: scrollStarsBackground 35s linear infinite;
+}
+
+@keyframes scrollStarsBackground {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.scanlines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04)); background-size: 100% 4px, 6px 100%; z-index: 999; pointer-events: none; }
+
+/* GIFS FLOTANTES DINÁMICOS LATERALES (Corregidos sin texto roto externo) */
+.floating-gif {
+    position: fixed;
+    top: 38%;
+    width: 90px;
+    height: auto;
+    z-index: 10;
+    image-rendering: pixelated;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+}
+.gif-left { left: 3%; animation: floatY 3.5s ease-in-out infinite; }
+.gif-right { right: 3%; animation: floatY 3.5s ease-in-out infinite 1.75s; }
+@keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+.page-container { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+/* ==========================================================================
+   2. HEADER TITULO GIGANTE GLITCH
+   ========================================================================= */
+.main-header { text-align: center; padding: 50px 0 25px 0; }
+.game-title { font-family: 'Press Start 2P', monospace; font-size: 3.5rem; text-shadow: 4px 4px 0px var(--neon-pink), -2px -2px 0px var(--neon-blue); animation: twitch 3s infinite; line-height: 1.3; }
+.subtitle { font-size: 1rem; color: var(--neon-blue); letter-spacing: 5px; margin-top: 15px; font-weight: bold; }
+.live-badge { display: inline-block; font-family: 'Press Start 2P', monospace; font-size: 0.65rem; background: rgba(255, 102, 0, 0.15); color: var(--neon-orange); padding: 8px 16px; border: 2px solid var(--neon-orange); margin-top: 20px; box-shadow: 0 0 15px rgba(255, 102, 0, 0.25); }
+
+/* ==========================================================================
+   3. CAROUSEL CON DESPLAZAMIENTO PREMIUM
+   ========================================================================= */
+.carousel-section { margin-bottom: 40px; }
+.carousel-container { position: relative; background: #000; border: 3px solid var(--neon-blue); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); overflow: hidden; }
+.carousel-track { display: flex; width: 100%; transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1); }
+.carousel-slide { min-width: 100%; }
+.carousel-slide img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; margin-top: -22px; color: #fff; font-weight: bold; font-size: 24px; background-color: rgba(0,0,0,0.8); border: 1px solid var(--neon-blue); z-index: 10; }
+.next { right: 0; }
+.prev:hover, .next:hover { background: var(--neon-blue); color: #000; box-shadow: 0 0 15px var(--neon-blue); }
+.glitch-transition { animation: quickGlitch 0.3s steps(2); }
+@keyframes quickGlitch { 0%, 100% { filter: none; } 50% { filter: hue-rotate(60deg) saturate(2); } }
+
+/* Títulos de Bloques */
+.section-title, .section-title-orange, .section-title-pink { font-family: 'Press Start 2P', monospace; font-size: 0.95rem; margin-bottom: 25px; text-align: center; line-height: 1.5; }
+.section-title { color: var(--neon-pink); text-shadow: 0 0 8px rgba(255,0,85,0.3); }
+.section-title-orange { color: var(--neon-orange); text-shadow: 0 0 8px rgba(255,102,0,0.3); }
+.section-title-pink { color: var(--neon-blue); text-shadow: 0 0 8px rgba(0,240,255,0.3); }
+
+/* ==========================================================================
+   4. MAGIC PIXEL PARTICLES (EFECTO INTERNO DE SECCIONES)
+   ========================================================================= */
+.pixel-particles {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(var(--neon-blue) 1px, transparent 1px);
+    background-size: 10px 10px;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+@keyframes moveParticles {
+    from { background-position: 0 0; }
+    to { background-position: 20px 20px; }
+}
+
+/* ==========================================================================
+   5. SECCIÓN ARSENAL INTERACTIVA
+   ========================================================================= */
+.arsenal-section { margin-bottom: 50px; }
+.weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+.weapon-card { background: var(--bg-card); border: 2px solid #151d2a; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); overflow: hidden; position: relative; cursor: crosshair; }
+
+.preview-box { position: relative; width: 100%; aspect-ratio: 1.5 / 1; background: #020407; border-radius: 6px; margin-bottom: 15px; border: 1px solid #1c2637; display: flex; align-items: center; justify-content: center; overflow: hidden; z-index: 1; }
+.preview-box img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; position: absolute; top: 0; left: 0; transition: opacity 0.25s ease; }
+
+.action-gif { opacity: 0; z-index: 1; }
+.static-img { opacity: 1; z-index: 2; }
+
+.hover-hint { position: absolute; bottom: 4px; font-family: 'Press Start 2P', monospace; font-size: 0.5rem; color: var(--neon-blue); opacity: 0.5; z-index: 3; }
+
+.weapon-card h3 { font-size: 1.3rem; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; position: relative; z-index: 1; }
+.weapon-card p { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; color: var(--text-gray); line-height: 1.5; position: relative; z-index: 1; }
+
+.weapon-card:hover { transform: scale(1.04); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+.weapon-card:hover .static-img { opacity: 0; }
+.weapon-card:hover .action-gif { opacity: 1; }
+.weapon-card:hover .hover-hint { opacity: 0; }
+
+.weapon-card.ice:hover { border-color: var(--neon-blue); }
+.weapon-card.ice h3 { color: var(--neon-blue); }
+.weapon-card.blob:hover { border-color: var(--neon-green); }
+.weapon-card.blob h3 { color: var(--neon-green); }
+.weapon-card.minigun:hover { border-color: var(--neon-orange); }
+.weapon-card.minigun h3 { color: var(--neon-orange); }
+.weapon-card.missile:hover { border-color: var(--neon-pink); }
+.weapon-card.missile h3 { color: var(--neon-pink); }
+
+/* ==========================================================================
+   6. SINOPSIS, BESTIARIO & LOOT
+   ========================================================================= */
+.sinopsis-card, .loot-card, .controls-card, .bug-card, .comments-card { background: var(--bg-card); border: 1px solid rgba(0, 240, 255, 0.15); padding: 35px; margin-bottom: 50px; position: relative; box-shadow: inset 0 0 20px rgba(0,240,255,0.02); transition: border-color 0.3s; }
+.sinopsis-card:hover, .loot-card:hover, .controls-card:hover, .bug-card:hover, .comments-card:hover { border-color: rgba(0, 240, 255, 0.4); }
+
+.card-corner {
+    position: absolute;
+    width: 14px; /* Un poco más grande para que se note el corte */
+    height: 14px;
+    border: 3px solid var(--neon-blue); /* Un borde ligeramente más grueso para estilo arcade */
+    z-index: 2;
+}
+
+.top-left { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+.top-right { top: -3px; right: -3px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: -3px; left: -3px; border-right: none; border-top: none; }
+.bottom-right { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+
+.sinopsis-card h2, .loot-card h2, .controls-card h2, .bug-card h2, .comments-card h2 { font-family: 'Press Start 2P', monospace; font-size: 0.85rem; color: var(--neon-blue); text-align: center; margin-bottom: 20px; line-height: 1.5; position: relative; z-index: 1; }
+.sinopsis-card p, .bug-intro { font-family: 'Rajdhani', sans-serif; font-size: 1.3rem; text-align: center; color: #cbd5e1; line-height: 1.6; position: relative; z-index: 1; }
+
+/* Bestiario */
+.bestiary-section { margin-bottom: 50px; }
+.enemy-scroller { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.enemy-card { background: #0c111c; border: 1px solid #1c2637; border-radius: 8px; padding: 20px; display: flex; align-items: center; gap: 25px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+
+.enemy-sprite { width: 75px; height: 75px; image-rendering: pixelated; object-fit: contain; filter: drop-shadow(0 0 8px rgba(255, 0, 85, 0.15)); transition: transform 0.3s ease, filter 0.3s ease; position: relative; z-index: 1; }
+
+.enemy-meta { position: relative; z-index: 1; }
+.enemy-meta h4 { font-size: 1.2rem; color: #fff; margin-bottom: 6px; }
+.enemy-meta span { font-family: 'Press Start 2P', monospace; font-size: 0.55rem; font-weight: bold; padding: 4px 8px; border-radius: 3px; display: inline-block; }
+.danger-low { background: rgba(58, 222, 131, 0.12); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.danger-medium { background: rgba(255, 102, 0, 0.12); color: var(--neon-orange); border: 1px solid var(--neon-orange); }
+.danger-high { background: rgba(255, 0, 85, 0.12); color: var(--neon-pink); border: 1px solid var(--neon-pink); }
+
+.enemy-card:hover { border-color: var(--neon-pink); background: rgba(255, 0, 85, 0.03); transform: translateY(-4px); box-shadow: 0 8px 20px rgba(255,0,85,0.15); }
+.enemy-card:hover .enemy-sprite { transform: scale(1.1) rotate(-3deg); filter: drop-shadow(0 0 15px var(--neon-pink)); }
+
+/* Suministros Loot */
+.loot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; position: relative; z-index: 1; }
+.loot-item { background: rgba(2, 4, 7, 0.4); border: 1px solid #141b29; border-radius: 8px; padding: 20px; display: flex; align-items: center; gap: 20px; text-align: left; transition: all 0.3s ease; }
+.loot-item img { width: 50px; height: 50px; image-rendering: pixelated; object-fit: contain; flex-shrink: 0; }
+.loot-info { flex-grow: 1; }
+.loot-item strong { display: block; color: #fff; margin-bottom: 4px; font-size: 1.1rem; letter-spacing: 1px; }
+.loot-item p { font-family: 'Rajdhani', sans-serif; font-size: 1rem; color: var(--text-gray); line-height: 1.4; }
+.loot-item:hover { border-color: var(--neon-blue); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1); }
+
+/* ==========================================================================
+   7. INTERACTIVIDAD DE CONTROLES POR CLIC (CON MONITOR INDEPENDIENTE FIJADO)
+   ========================================================================= */
+.control-key-item.active .pixel-particles {
+    opacity: 0.15;
+    animation: moveParticles 2s linear infinite;
+}
+
+.controls-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 15px;
+    align-items: start;
+}
+
+.control-key-item {
+    background: #0c111c;
+    border: 1px solid #1c2637;
+    border-left: 4px solid var(--neon-green);
+    padding: 18px 15px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: auto;
+}
+
+.platform-block:nth-child(1) .control-key-item { border-left-color: var(--neon-blue); }
+.platform-block:nth-child(2) .control-key-item { border-left-color: var(--neon-orange); }
+.platform-block:nth-child(3) .control-key-item { border-left-color: var(--neon-green); }
+
+.control-header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 46px;
+    z-index: 2;
+    margin-bottom: 0;
+    transition: margin-bottom 0.25s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.key-box, .key-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.52rem;
+    background: #1b263b;
+    border: 2px solid #3a86ff;
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: var(--neon-blue);
+    box-shadow: 0 3px 0px #1d4ed8;
+    white-space: nowrap;
+    text-align: center;
+    width: fit-content;
+    min-width: 95px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.btn-mando-red { color: #ff0055; border-color: #ff0055; box-shadow: 0 3px 0px #9a0036; }
+.btn-mando-orange { color: #ffaa00; border-color: #ffaa00; box-shadow: 0 3px 0px #b57700; }
+
+.control-text-block {
+    flex-grow: 1;
+    white-space: nowrap;
+}
+.control-text-block strong { display: block; font-size: 1rem; color: #fff; margin-bottom: 2px; text-transform: uppercase; }
+.control-text-block p { font-family: 'Rajdhani', sans-serif; font-size: 0.95rem; color: var(--text-gray); line-height: 1.3; white-space: normal; }
+
+.control-action-monitor {
+    width: 100%;
+    height: 0;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    background: #010306;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.3s ease, margin-top 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid transparent;
+    z-index: 2;
+}
+.control-action-monitor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    display: block;
+}
+
+.control-key-item.active {
+    background: #0d121f;
+    border-color: rgba(0, 240, 255, 0.3);
+}
+.control-key-item.active .control-header-wrapper {
+    margin-bottom: 15px;
+}
+.control-key-item.active .control-action-monitor {
+    height: 160px !important;
+    max-height: 160px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-top: 5px;
+    border: 1px solid #24344f;
+}
+
+.pixel-border-anim {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid transparent;
+    pointer-events: none;
+    z-index: 1;
+}
+.control-key-item.active .pixel-border-anim {
+    border-image: repeating-linear-gradient(90deg, var(--neon-blue) 0, var(--neon-blue) 4px, transparent 4px, transparent 10px) 2;
+    animation: pixelAlphaRun 0.4s infinite linear;
+}
+.platform-block:nth-child(2) .control-key-item.active .pixel-border-anim {
+    border-image: repeating-linear-gradient(90deg, var(--neon-orange) 0, var(--neon-orange) 4px, transparent 4px, transparent 10px) 2;
+}
+.platform-block:nth-child(3) .control-key-item.active .pixel-border-anim {
+    border-image: repeating-linear-gradient(90deg, var(--neon-green) 0, var(--neon-green) 4px, transparent 4px, transparent 10px) 2;
+}
+
+@keyframes pixelAlphaRun {
+    from { border-image-outset: 0px; }
+    to { border-image-outset: 1px; }
+}
+
+/* ==========================================================================
+   8. NUEVA SECCIÓN: TERMINAL DE REPORTE DE ANOMALÍAS (BUGS)
+   ========================================================================= */
+.bug-report-section { margin-bottom: 50px; }
+.bug-card { border-color: rgba(255, 0, 85, 0.2); }
+.bug-card h2 { color: var(--neon-pink); }
+.bug-intro { font-size: 1.15rem; margin-bottom: 25px; }
+
+.bug-terminal-form {
+    background: #02050a;
+    border: 1px solid #141f30;
+    padding: 25px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.terminal-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: var(--neon-pink);
+    letter-spacing: 0px;
+}
+
+.terminal-select, .terminal-textarea {
+    background: #070c14;
+    border: 1px solid #1b283d;
+    padding: 12px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.terminal-select:focus, .terminal-textarea:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.15);
+}
+
+.terminal-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.terminal-submit-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    background: rgba(255, 0, 85, 0.1);
+    color: var(--neon-pink);
+    border: 1px solid var(--neon-pink);
+    padding: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.terminal-submit-btn:hover {
+    background: var(--neon-pink);
+    color: #000;
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+/* ==========================================================================
+   9. DESCARGAS Y REQUISITOS (SPECS GRID INTEGRADOS)
+   ========================================================================= */
+.downloads-section { margin-bottom: 50px; text-align: center; }
+.downloads-table { background: var(--bg-card); border: 2px solid #1a2333; box-shadow: 0 15px 35px rgba(0,0,0,0.8); margin-bottom: 15px; }
+.table-header { display: grid; grid-template-columns: 1fr 1fr; background: #0f1420; padding: 15px; border-bottom: 2px solid #1a2333; font-weight: bold; font-size: 0.9rem; color: var(--neon-blue); }
+.table-row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 18px 20px; border-bottom: 1px solid #141b29; }
+.table-row:last-child { border-bottom: none; }
+.os-column { display: flex; align-items: center; gap: 15px; justify-content: flex-start; padding-left: 20px; }
+.table-os-icon { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; flex-shrink: 0; }
+.os-name { font-size: 1.2rem; font-weight: bold; color: #fff; }
+.download-link { font-family: 'Press Start 2P', monospace; font-size: 0.7rem; text-decoration: none; padding: 12px 20px; border-radius: 4px; transition: all 0.2s; display: inline-block; width: fit-content; margin: 0 auto; }
+.link-apk { background: rgba(58, 222, 131, 0.08); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.link-apk:hover { background: var(--neon-green); color: #000; box-shadow: 0 0 15px var(--neon-green); }
+.link-pc { background: rgba(255, 102, 0, 0.08); color: var(--neon-orange); border: 1px solid var(--neon-orange); }
+.link-pc:hover { background: var(--neon-orange); color: #fff; box-shadow: 0 0 15px var(--neon-orange); }
+.file-meta { margin-top: 20px; font-size: 0.8rem; color: #475569; }
+
+.requirements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 35px;
+    text-align: left;
+}
+.req-box {
+    background: rgba(12, 17, 28, 0.6);
+    border: 1px solid #1a2436;
+    border-radius: 6px;
+    padding: 20px;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+.pc-req { border-top: 3px solid var(--neon-orange); }
+.android-req { border-top: 3px solid var(--neon-green); }
+.req-box:hover { border-color: rgba(255, 255, 255, 0.15); }
+.req-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    margin-bottom: 15px;
+    letter-spacing: 0px;
+}
+.pc-req .req-title { color: var(--neon-orange); }
+.android-req .req-title { color: var(--neon-green); }
+.req-box ul { list-style: none; padding: 0; margin: 0; }
+.req-box li {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+    line-height: 1.4;
+    border-bottom: 1px dashed rgba(28, 38, 55, 0.4);
+    padding-bottom: 4px;
+}
+.req-box li:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.req-box li strong {
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    display: inline-block;
+    width: 120px;
+}
+
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================= */
+.main-footer { border-top: 1px dashed #1a2333; padding: 35px 20px; text-align: center; color: #475569; font-size: 0.85rem; }
+.tech-badges { margin-top: 12px; display: flex; justify-content: center; gap: 15px; font-size: 0.75rem; font-weight: bold; color: var(--neon-blue); }
+
+@keyframes twitch {
+    0%, 93%, 100% { text-shadow: 4px 4px 0px var(--neon-pink), -2px -2px 0px var(--neon-blue); transform: skew(0deg); }
+    94% { text-shadow: -4px -4px 0px var(--neon-pink), 4px 4px 0px var(--neon-blue); transform: skew(2deg); }
+    96% { text-shadow: 6px -2px 0px var(--neon-orange), -4px 4px 0px var(--neon-blue); transform: skew(-2deg); }
+}
+
+/* ==========================================================================
+   11. COMPLETA OPTIMIZACIÓN RESPONSIVA (MÓVILES)
+   ========================================================================= */
+@media (max-width: 1120px) { .floating-gif { display: none !important; } }
+@media (max-width: 768px) {
+    .page-container { padding: 12px; }
+    .game-title { font-size: 2.2rem; text-shadow: 3px 3px 0px var(--neon-pink), -1px -1px 0px var(--neon-blue); }
+    .subtitle { font-size: 0.85rem; letter-spacing: 3px; }
+    .section-title, .section-title-orange, .section-title-pink { font-size: 0.75rem; line-height: 1.6; padding: 0 5px; }
+    .sinopsis-card, .loot-card, .controls-card, .bug-card, .comments-card { padding: 25px 15px; margin-bottom: 35px; }
+    .sinopsis-card h2, .loot-card h2, .controls-card h2, .bug-card h2, .comments-card h2 { font-size: 0.7rem; }
+    .sinopsis-card p, .bug-intro { font-size: 1.1rem; line-height: 1.5; }
+
+    .weapons-grid { grid-template-columns: 1fr; gap: 15px; }
+    .weapon-card { padding: 15px; }
+    .preview-box { aspect-ratio: 16 / 9; }
+
+    .enemy-scroller { grid-template-columns: 1fr; gap: 12px; }
+    .enemy-card { padding: 12px; gap: 15px; }
+
+    .loot-grid { grid-template-columns: 1fr; gap: 12px; }
+    .loot-item { padding: 15px; }
+
+    .controls-layout { grid-template-columns: 1fr; gap: 12px; }
+    .control-key-item { padding: 15px; }
+    .control-key-item.active .control-action-monitor { height: 130px; }
+    .requirements-container { grid-template-columns: 1fr; gap: 15px; }
+    .req-box li strong { width: 100px; font-size: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+    .game-title { font-size: 1.7rem; }
+    .subtitle { font-size: 0.75rem; letter-spacing: 2px; }
+    .table-header { grid-template-columns: 1fr; display: none; }
+    .table-row { grid-template-columns: 1fr; gap: 12px; padding: 15px; text-align: center; }
+    .download-link { width: 100%; text-align: center; font-size: 0.65rem; padding: 14px; }
+    .key-box, .key-label { min-width: 80px; font-size: 0.45rem; padding: 5px 6px; }
+    .bug-terminal-form { padding: 15px; }
+}
+
+.terminal-file-input {
+    background: #070c14;
+    border: 1px dashed #1b283d;
+    padding: 10px;
+    color: var(--neon-pink);
+    font-family: 'Rajdhani', sans-serif;
+    cursor: pointer;
+    width: 100%;
+}
+
+.terminal-file-input::-webkit-file-upload-button {
+    background: var(--neon-pink);
+    border: none;
+    color: #000;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* NOTIFICACIÓN ESTILO TERMINAL */
+.terminal-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #000;
+    border: 2px solid var(--neon-pink);
+    color: var(--neon-pink);
+    padding: 15px 25px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    z-index: 10000;
+    display: none; /* Oculto por defecto */
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+    animation: toastGlitch 0.3s infinite;
+}
+
+@keyframes toastGlitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 1px); border-color: var(--neon-blue); }
+    40% { transform: translate(2px, -1px); }
+    60% { transform: translate(-1px, -2px); border-color: var(--neon-green); }
+    100% { transform: translate(0); }
+}
+
+/* ==========================================================================
+   12. COMENTARIOS CRUD SYSTEM
+   ========================================================================= */
+.comments-section { margin-bottom: 50px; }
+.comments-card { border-color: var(--neon-blue); }
+.comments-card h2 { color: var(--neon-blue); }
+
+.auth-container { margin-bottom: 30px; }
+.auth-hint { font-size: 0.8rem; color: var(--neon-blue); margin-bottom: 15px; font-family: "Press Start 2P", monospace; }
+.auth-forms { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.auth-form { display: flex; gap: 10px; flex-grow: 1; }
+.auth-form input {
+    background: #070c14; border: 1px solid #1b283d; padding: 10px; color: #fff;
+    font-family: "Rajdhani", sans-serif; font-size: 1rem; border-radius: 4px; outline: none; width: 100%;
+}
+.auth-form button {
+    font-family: "Press Start 2P", monospace; font-size: 0.55rem; background: rgba(0, 240, 255, 0.1);
+    color: var(--neon-blue); border: 1px solid var(--neon-blue); padding: 10px; cursor: pointer; white-space: nowrap;
+}
+.auth-form button:hover { background: var(--neon-blue); color: #000; }
+.auth-divider { font-family: "Press Start 2P", monospace; font-size: 0.6rem; color: var(--text-gray); }
+
+.user-profile { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 10px; background: rgba(0, 240, 255, 0.05); border: 1px dashed var(--neon-blue); }
+#userInfo { font-family: "Press Start 2P", monospace; font-size: 0.65rem; color: var(--neon-blue); }
+.logout-btn { font-family: "Press Start 2P", monospace; font-size: 0.5rem; background: transparent; color: var(--neon-pink); border: 1px solid var(--neon-pink); padding: 5px 10px; cursor: pointer; }
+
+.comment-form-container { margin-bottom: 30px; }
+.comment-form { display: flex; flex-direction: column; gap: 10px; }
+.comment-form textarea {
+    background: #02050a; border: 1px solid #1b283d; padding: 15px; color: #fff;
+    font-family: "Rajdhani", sans-serif; font-size: 1.1rem; border-radius: 4px; outline: none; resize: vertical; min-height: 80px;
+}
+.comment-form button {
+    align-self: flex-end; font-family: "Press Start 2P", monospace; font-size: 0.6rem;
+    background: rgba(58, 222, 131, 0.1); color: var(--neon-green); border: 1px solid var(--neon-green); padding: 12px 20px; cursor: pointer;
+}
+.comment-form button:hover { background: var(--neon-green); color: #000; }
+
+.comments-list { display: flex; flex-direction: column; gap: 20px; }
+.comment-item { background: #0c111c; border: 1px solid #1c2637; padding: 20px; border-radius: 8px; position: relative; }
+.comment-header { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #1c2637; padding-bottom: 5px; }
+.comment-author { font-family: "Press Start 2P", monospace; font-size: 0.65rem; color: var(--neon-blue); }
+.comment-author.admin { color: var(--neon-orange); }
+.comment-date { font-size: 0.8rem; color: var(--text-gray); }
+.comment-content { font-family: "Rajdhani", sans-serif; font-size: 1.1rem; line-height: 1.5; margin-bottom: 15px; white-space: pre-wrap; }
+.comment-actions { display: flex; gap: 15px; }
+.action-link { font-family: "Press Start 2P", monospace; font-size: 0.5rem; background: transparent; border: none; cursor: pointer; padding: 0; }
+.edit-link { color: var(--neon-green); }
+.delete-link { color: var(--neon-pink); }
+.reply-link { color: var(--neon-blue); }
+
+.replies-container { margin-left: 40px; margin-top: 15px; border-left: 2px solid #1c2637; padding-left: 15px; display: flex; flex-direction: column; gap: 15px; }
+
+/* INLINE EDITING STYLES */
+.inline-edit-container { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+.inline-edit-textarea {
+    background: #02050a; border: 1px solid var(--neon-blue); padding: 10px; color: #fff;
+    font-family: "Rajdhani", sans-serif; font-size: 1.1rem; border-radius: 4px; outline: none; resize: vertical; min-height: 60px;
+}
+.inline-edit-actions { display: flex; gap: 15px; }
+
+/* MODAL CYBERPUNK */
+.cyber-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+    display: none; align-items: center; justify-content: center; z-index: 20000;
+}
+.cyber-modal {
+    background: var(--bg-card); border: 2px solid var(--neon-pink);
+    padding: 40px; max-width: 450px; width: 90%; text-align: center;
+    position: relative; box-shadow: 0 0 30px rgba(255, 0, 85, 0.3);
+}
+.cyber-modal h3 { font-family: "Press Start 2P", monospace; font-size: 0.8rem; color: var(--neon-pink); margin-bottom: 20px; }
+.cyber-modal p { font-family: "Rajdhani", sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 30px; }
+.modal-actions { display: flex; gap: 20px; justify-content: center; }
+.cancel-btn { border-color: var(--text-gray); color: var(--text-gray); background: rgba(255,255,255,0.05); }
+.cancel-btn:hover { background: var(--text-gray); color: #000; box-shadow: 0 0 15px var(--text-gray); }
+
+/* ESTILO RESPUESTAS MEJORADO */
+.reply-form {
+    background: rgba(0, 240, 255, 0.03); border: 1px dashed var(--neon-blue);
+    padding: 15px; border-radius: 4px; margin-top: 15px;
+}
+.reply-form textarea {
+    width: 100%; background: #02050a; color: #fff; border: 1px solid #1b283d;
+    padding: 10px; font-family: "Rajdhani", sans-serif; font-size: 1rem;
+    outline: none; transition: border-color 0.3s; margin-bottom: 10px;
+}
+.reply-form textarea:focus { border-color: var(--neon-blue); }
+
+/* FIX: Ocultar cualquier elemento huerfano que use card-corner fuera de un contenedor con position: relative */
+body > .card-corner { display: none !important; }
+
+/* EVITAR SELECCIÓN DE TEXTO EN BOTONES DE ACCIÓN */
+.comment-actions button, .action-link, .terminal-submit-btn {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
